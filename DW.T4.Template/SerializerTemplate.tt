@@ -1,0 +1,24 @@
+﻿<#@ assembly name="C:\_Git\DW.T4.ScratchPad\lib\DW.T4\DW.T4.dll" #>
+<#+
+    public void GenerateSerializerTemplateClassText(Type modelType)
+    {
+#>
+namespace DW.Infrastructure.Broadcasting.PublicApi<#= DW.T4.ModelT4Helper.GetRelativeNamespace(modelType) #>
+{
+	public class <#= modelType.Name #>
+	{
+		public void Serialize()
+		{
+			var serialized = "";
+<#+ 
+var propertyAbbreviations = DW.T4.ModelT4Helper.GetPropertyAbbreviations(modelType);
+foreach (var key in propertyAbbreviations.Keys)
+{ #>		
+			serialized += "<#= key #>" + "<#= propertyAbbreviations[key] #>";
+<#+ } #>
+		}
+	}
+}
+<#+
+    }
+#>

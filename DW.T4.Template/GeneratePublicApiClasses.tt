@@ -1,6 +1,7 @@
 ﻿<#@ template debug="true" hostspecific="true" language="C#" #>
 <#@ import namespace="System.IO" #>
 <#@ include file="FieldNamesProviderTemplate.tt" #>
+<#@ include file="SerializerTemplate.tt" #>
 <#@ assembly name="C:\_Git\DW.T4.ScratchPad\lib\DW.T4\DW.T4.dll" #>
 <#@ assembly name="C:\_Git\DW.T4.ScratchPad\lib\DW.T4\DW.T4.Model.dll" #>
 
@@ -8,21 +9,27 @@
 	//Clear anything already in the buffer
 	this.GenerationEnvironment.Remove(0, this.GenerationEnvironment.Length);
     
-	//Loop through all model files creating FieldNamesProvider classes
+	//Loop through all model files creating all public api classes
 	foreach (var modelType in DW.T4.ModelT4Helper.GetModelDtoTypes("DW.T4.Model"))
 	{
 		var modelTypeName = modelType.Name;
+
+		//FieldNamesProvider
 		GenerateFieldNamesProviderClassText(modelType);
-		SaveClassFile(modelTypeName + ".cs");
+		SaveClassFile("../DW.Lightstreamer.PublicApi/v001", modelTypeName + ".cs");
+
+		//Serializer
+		GenerateSerializerTemplateClassText(modelType);
+		SaveClassFile("../DW.Infrastructure.Broadcasting.PublicApi/v001", modelTypeName + ".cs");
 	}
 #>
 
 <#+
-	public void SaveClassFile(string classFileName)
+	public void SaveClassFile(string projectPath, string classFileName)
 	{
 		//Generate the full path of the class file
 		string templateDirectory = Path.GetDirectoryName(Host.TemplateFile);
-		string classFilePath = Path.Combine(templateDirectory, "../DW.Lightstreamer.PublicApi/v001", classFileName);
+		string classFilePath = Path.Combine(templateDirectory, projectPath, classFileName);
 		
 		//Write current generated text into the file
 		File.WriteAllText(classFilePath, this.GenerationEnvironment.ToString()); 
