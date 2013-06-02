@@ -1,0 +1,33 @@
+﻿<#@ template debug="true" hostspecific="true" language="C#" #>
+<#@ import namespace="System.IO" #>
+<#@ include file="FieldNamesProviderTemplate.tt" #>
+<#@ assembly name="C:\_Git\DW.T4.ScratchPad\lib\DW.T4\DW.T4.dll" #>
+<#@ assembly name="C:\_Git\DW.T4.ScratchPad\lib\DW.T4\DW.T4.Model.dll" #>
+
+<#
+	//Clear anything already in the buffer
+	this.GenerationEnvironment.Remove(0, this.GenerationEnvironment.Length);
+    
+	//Loop through all model files creating FieldNamesProvider classes
+	foreach (var modelType in DW.T4.ModelT4Helper.GetModelDtoTypes("DW.T4.Model"))
+	{
+		var modelTypeName = modelType.Name;
+		GenerateFieldNamesProviderClassText(modelType);
+		SaveClassFile(modelTypeName + ".cs");
+	}
+#>
+
+<#+
+	public void SaveClassFile(string classFileName)
+	{
+		//Generate the full path of the class file
+		string templateDirectory = Path.GetDirectoryName(Host.TemplateFile);
+		string classFilePath = Path.Combine(templateDirectory, "../DW.Lightstreamer.PublicApi/v001", classFileName);
+		
+		//Write current generated text into the file
+		File.WriteAllText(classFilePath, this.GenerationEnvironment.ToString()); 
+
+		//Clear for next run
+		this.GenerationEnvironment.Remove(0, this.GenerationEnvironment.Length);
+	}
+#>

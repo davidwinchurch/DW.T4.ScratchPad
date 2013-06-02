@@ -1,0 +1,25 @@
+﻿<#@ assembly name="C:\_Git\DW.T4.ScratchPad\lib\DW.T4\DW.T4.dll" #>
+<#+
+    public void GenerateFieldNamesProviderClassText(Type modelType)
+    {
+#>
+using System.Collections.Specialized;
+
+namespace DW.Lightstreamer.PublicApi<#= DW.T4.ModelT4Helper.GetRelativeNamespace(modelType) #>
+{
+	public class <#= modelType.Name #>
+	{
+		public OrderedDictionary FieldNames = new OrderedDictionary
+		{
+<#+ 
+var propertyAbbreviations = DW.T4.ModelT4Helper.GetPropertyAbbreviations(modelType);
+foreach (var key in propertyAbbreviations.Keys)
+{ #>
+			{ "<#= key #>", "<#= propertyAbbreviations[key] #>" },
+<#+ } #>
+		};
+	}
+}
+<#+
+    }
+#>

@@ -1,8 +1,8 @@
-﻿namespace DW.T4.ScratchPad.Model.v001
+﻿namespace DW.T4.Model.v001
 {
-    public class Market
+    public class MarketDto
     {
-        public Market(int id, string name)
+        public MarketDto(int id, string name)
         {
             Name = name;
             Id = id;

@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("DW.T4.ScratchPad")]
+[assembly: AssemblyTitle("DW.T4.Template")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("DW.T4.ScratchPad")]
+[assembly: AssemblyProduct("DW.T4.Template")]
 [assembly: AssemblyCopyright("Copyright ©  2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("b5f0d7e7-f08a-485e-832f-1775414d1aa8")]
+[assembly: Guid("5f79a908-0145-48cd-9ffe-f5bf04534e50")]
 
 // Version information for an assembly consists of the following four values:
 //
