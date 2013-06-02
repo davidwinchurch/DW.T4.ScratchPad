@@ -1,0 +1,14 @@
+﻿//http://www.olegsych.com/2008/03/how-to-generate-multiple-outputs-from-single-t4-template/
+//http://archive.msdn.microsoft.com/vsvmsdk
+<#@ template language="C#" hostspecific="true" #>
+<#@ import namespace="System.IO" #>
+<#+
+  void SaveOutput(string outputFileName)
+  {
+      string templateDirectory = Path.GetDirectoryName(Host.TemplateFile);
+      string outputFilePath = Path.Combine(templateDirectory, outputFileName);
+      File.WriteAllText(outputFilePath, this.GenerationEnvironment.ToString()); 
+
+      this.GenerationEnvironment.Remove(0, this.GenerationEnvironment.Length);
+  }
+#>

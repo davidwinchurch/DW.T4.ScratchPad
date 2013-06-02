@@ -1,0 +1,17 @@
+﻿<#@ assembly name="$(SolutionDir)DW.T4.Model\bin\Debug\DW.T4.Model.dll" #>
+<#+
+    void GenerateFile2(string parameter)
+    {
+#>
+namespace DW.Lightstreamer.PublicApi
+{
+	public class <#= parameter #>
+	{
+<#+ foreach (string modelTypeName in DW.T4.Model.T4Helper.GetModelTypeNames()) { #>
+		<#= modelTypeName #>
+<#+ } #>
+	}
+}
+<#+
+    }
+#>

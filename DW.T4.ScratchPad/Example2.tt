@@ -1,0 +1,17 @@
+﻿<#@ include file="SaveOutput.tt" #>
+<#@ include file="File1.tt" #>
+<#@ include file="File2.tt" #>
+<#@ assembly name="$(SolutionDir)DW.T4.Model\bin\Debug\DW.T4.Model.dll" #>
+<#
+    GenerateFile1("parameter 1");
+    SaveOutput("File2-1.txt");  
+
+    GenerateFile2("parameter2");
+    SaveOutput("File2-2.txt");
+
+	foreach (string modelTypeName in DW.T4.Model.T4Helper.GetModelTypeNames())
+	{
+		GenerateFile2(modelTypeName);
+		SaveOutput(modelTypeName + ".cs");
+	}
+#>

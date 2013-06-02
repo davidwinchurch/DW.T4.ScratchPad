@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DW.T4.ScratchPad", "DW.T4.ScratchPad\DW.T4.ScratchPad.csproj", "{A81B5FA5-BCD9-476E-8059-2D914E380360}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DW.T4.Model", "DW.T4.Model\DW.T4.Model.csproj", "{6CA8EE81-72F5-4C00-8C1B-949DF8E0A27D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A81B5FA5-BCD9-476E-8059-2D914E380360}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A81B5FA5-BCD9-476E-8059-2D914E380360}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A81B5FA5-BCD9-476E-8059-2D914E380360}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A81B5FA5-BCD9-476E-8059-2D914E380360}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CA8EE81-72F5-4C00-8C1B-949DF8E0A27D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CA8EE81-72F5-4C00-8C1B-949DF8E0A27D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CA8EE81-72F5-4C00-8C1B-949DF8E0A27D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CA8EE81-72F5-4C00-8C1B-949DF8E0A27D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

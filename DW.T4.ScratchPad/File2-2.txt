@@ -1,0 +1,10 @@
+namespace DW.Lightstreamer.PublicApi
+{
+	public class parameter2
+	{
+		T4Helper
+		Currency
+		Market
+		Trade
+	}
+}
